@@ -1,0 +1,111 @@
+---
+import '@fontsource-variable/raleway';
+import '../styles/global.css';
+import { site, nav, href, img } from '../data/site.js';
+
+const { title, description, path = '/', schema = true } = Astro.props;
+const canonical = new URL(path, site.url).href;
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Chiropractor',
+  name: 'Dr. Mark Pitcher, Sports Chiropractor',
+  url: site.url,
+  telephone: site.phoneTel,
+  image: site.url + '/images/profile.jpg',
+  description:
+    'Mobile sports chiropractic and exercise physiology. Visits by appointment at hotels, homes and condos in the Vail Valley.',
+  areaServed: site.areas.map((a) => ({ '@type': 'City', name: `${a}, Colorado` })),
+  sameAs: [site.mapsUrl],
+  founder: {
+    '@type': 'Person',
+    name: 'Mark J. Pitcher',
+    honorificSuffix: site.credentials,
+    jobTitle: 'Sports chiropractor and exercise physiologist',
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'Palmer College of Chiropractic' },
+      { '@type': 'CollegeOrUniversity', name: 'Memorial University of Newfoundland' },
+    ],
+  },
+};
+const current = (h) => (h === '/' ? path === '/' : path.startsWith(h));
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={site.url + '/images/profile.jpg'} />
+    <meta name="theme-color" content="#ffffff" />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(ld)} />}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="wordmark" href={href('/')}>
+          <span class="wordmark-name">markjpitcher<span class="wordmark-dot">.com</span></span>
+        </a>
+        <nav class="nav-desktop" aria-label="Main">
+          {nav.slice(1).map((n) => (
+            <a href={href(n.href)} aria-current={current(n.href) ? 'page' : undefined}>{n.label}</a>
+          ))}
+        </nav>
+        <details class="nav-mobile">
+          <summary>Menu</summary>
+          <nav aria-label="Main">
+            {nav.map((n) => (
+              <a href={href(n.href)} aria-current={current(n.href) ? 'page' : undefined}>{n.label}</a>
+            ))}
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-name">Mark J. Pitcher, {site.credentials}</p>
+          <p>Mobile sports chiropractor by appointment in {site.areas.slice(0, -1).join(', ')} and {site.areas.at(-1)}, Colorado.</p>
+        </div>
+        <div>
+          <p><a href={`tel:${site.phoneTel}`}>Call {site.phoneDisplay}</a></p>
+          <p><a href={`sms:${site.phoneTel}`}>Text {site.phoneDisplay}</a></p>
+          <p><a href="#" class="js-email" data-u={site.emailUser} data-d={site.emailDomain}>Email</a></p>
+        </div>
+        <div>
+          <p><a href={href('/testimonials/')}>Testimonials</a></p>
+          <p><a href={site.mapsUrl} rel="noopener">Find on Google Maps</a></p>
+        </div>
+      </div>
+      <p class="wrap footer-small">© {new Date().getFullYear()} Mark J. Pitcher. Please do not send detailed medical information by email.</p>
+    </footer>
+
+    <div class="contact-bar" role="region" aria-label="Contact Dr. Pitcher">
+      <a class="bar-btn bar-call" href={`tel:${site.phoneTel}`}>Call</a>
+      <a class="bar-btn bar-text" href={`sms:${site.phoneTel}`}>Text</a>
+      <a class="bar-btn bar-email js-email" href="#" data-u={site.emailUser} data-d={site.emailDomain}>Email</a>
+    </div>
+
+    <script is:inline define:vars={{ subject: site.emailSubject, body: site.emailBody }}>
+      document.querySelectorAll('.js-email').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.location.href = 'mailto:' + a.dataset.u + '@' + a.dataset.d +
+            '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        });
+      });
+    </script>
+  </body>
+</html>

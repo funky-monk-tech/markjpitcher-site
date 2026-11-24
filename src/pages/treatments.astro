@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import { img } from '../data/site.js';
+
+const treatments = [
+  { id: 'adjustment', name: 'Chiropractic adjustment', text: 'Quick, controlled joint movement to ease pain and restore motion, for the spine and for hips, ankles, feet, shoulders and wrists.' },
+  { id: 'art', name: 'Active Release Technique (ART)', text: 'Hands-on, movement-based work for overuse problems such as sciatica, shin splints, plantar fasciitis and tennis elbow.' },
+  { id: 'dry-needling', name: 'Trigger point dry needling', text: 'A fine needle releases tight, sore muscle to ease long-standing pain and improve flexibility.' },
+  { id: 'graston', name: 'Graston Technique', text: 'Stainless steel instruments break up scar tissue and restrictions in muscle and fascia.' },
+  { id: 'taping', name: 'Sports and kinesiology taping', text: 'Elastic tape supports an area without limiting movement, so you can keep skiing while it settles.' },
+  { id: 'exercise', name: 'Corrective and rehabilitation exercise', text: 'Simple exercises chosen for your problem, plus the Functional Movement Screen to find weak links before they become injuries.' },
+];
+---
+<Base
+  title="Chiropractic, Dry Needling, ART in Vail | Dr. Mark Pitcher"
+  description="Chiropractic adjustment, dry needling, Active Release Technique, Graston and sports taping, brought to your hotel or home in the Vail Valley."
+  path="/treatments/"
+>
+  <section class="wrap page-head">
+    <h1>How can we help you?</h1>
+  </section>
+
+  <section class="section" style="padding-top:1rem">
+    <div class="wrap prose">
+      <p class="lead-line">Excellent treatment and great results are only possible when we start with a thorough history and evaluation that leads to an accurate and functional diagnosis.</p>
+      <p>Even as a chiropractic student at Palmer College of Chiropractic, Dr. Pitcher worked as a teaching assistant in the Department of Diagnosis and Protocol. Over almost 30 years of practice he has continued to seek out and learn from the leaders in the field. He uses the best diagnostic and assessment tools from medicine, chiropractic and fitness, not just to diagnose the condition but to get to the underlying root of the problem.</p>
+      <p>Treatment is then chosen for you from the methods below.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="split">
+      <div>
+      <h2>Treatment methods</h2>
+      <ul class="treat-list">
+        {treatments.map((t) => (
+          <li id={t.id}><span class="treat-name">{t.name}:</span> {t.text}</li>
+        ))}
+      </ul>
+      </div>
+      <div class="collage collage-side" style="margin-top:3.5rem">
+        <img class="tall" src={img('gallery-09.jpg')} alt="Dr. Pitcher taping a climber" loading="lazy" style="object-position: 50% 40%" />
+        <img src={img('treat-ballet.jpg')} alt="Dr. Pitcher assessing a ballet dancer's knee backstage" loading="lazy" style="object-position: 50% 30%" />
+        <img src={img('gallery-06.jpg')} alt="Dr. Pitcher adjusting a dancer's neck" loading="lazy" />
+        <img class="wide" src={img('treat-tape.jpg')} alt="Kinesiology tape on an ankle and shin" loading="lazy" />
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Not sure what you need?</h2>
+      <p>Describe the problem when you call or text. Treatment is decided after the examination, not before.</p>
+      <CallText />
+    </div>
+  </section>
+</Base>

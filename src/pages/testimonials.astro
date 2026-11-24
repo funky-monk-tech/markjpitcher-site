@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ReviewLinks from '../components/ReviewLinks.astro';
+
+---
+<Base
+  title="Testimonials | Mark Pitcher, DC, MSc, CCSP, Vail Sports Chiropractor"
+  description="What patients say about mobile sports chiropractor Mark Pitcher in Vail, from visiting skiers to New York City Ballet dancers."
+  path="/testimonials/"
+>
+  <section class="wrap page-head">
+    <h1>What people are saying</h1>
+  </section>
+
+  <section class="section" style="padding-top:1rem">
+    <div class="wrap">
+      <Testimonials />
+      <ReviewLinks gallery />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Book a visit</h2>
+      <CallText />
+    </div>
+  </section>
+</Base>

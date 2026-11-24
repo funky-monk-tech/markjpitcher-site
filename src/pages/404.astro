@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import { href } from '../data/site.js';
+---
+<Base title="Page not found | Dr. Mark Pitcher" description="This page does not exist." path="/404/" schema={false}>
+  <section class="wrap page-head">
+    <h1>That page is not here</h1>
+    <p>It may have moved when the site was rebuilt. Go to the <a href={href('/')}>home page</a>, or call or text to book a visit.</p>
+    <CallText />
+  </section>
+</Base>

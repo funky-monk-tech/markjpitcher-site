@@ -1,0 +1,15 @@
+---
+import { img } from '../data/site.js';
+import { testimonials } from '../data/testimonials.js';
+const { limit } = Astro.props;
+const list = limit ? testimonials.slice(0, limit) : testimonials;
+---
+<div class="testi-grid">
+  {list.map((t) => (
+    <figure class="testi">
+      <img class={t.logo ? 'testi-logo' : undefined} src={img(t.img)} alt={t.alt || ''} loading="lazy" width="400" height="400" />
+      <figcaption><strong>{t.name}</strong><span>{t.where}</span></figcaption>
+      <blockquote>{t.text}</blockquote>
+    </figure>
+  ))}
+</div>

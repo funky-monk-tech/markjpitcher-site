@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import { site, href, img } from '../data/site.js';
+---
+<Base
+  title="Hotel and In-Home Chiropractic in Vail | Dr. Mark Pitcher"
+  description="A sports chiropractor who comes to your hotel room, condo or home in Vail, Beaver Creek, Avon, Edwards and Minturn. By appointment. Call or text 970-331-1199."
+  path="/hotel-visits/"
+>
+  <section class="wrap page-head">
+    <h1>Chiropractic at your hotel, condo or home</h1>
+    <p>You are on vacation or recovering from a long day on the hill. You should not have to find a clinic, park and sit in a waiting room.</p>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>Where I go</h2>
+        <p>I see patients by appointment at hotels, rental condos, second homes and private residences in Vail, Beaver Creek, Avon, Edwards and Minturn.</p>
+        <p>Hotel concierges can call or text on a guest's behalf. Please make sure they include the guest's name and contact details so I can reach the guest directly if needed. If you are not sure whether I can get to you, ask.</p>
+        <h2>What a visit includes</h2>
+        <p>Every visit starts with a history and an examination, because the right treatment depends on an accurate diagnosis. Treatment is chosen for your problem and can include adjustment, soft tissue work, dry needling, taping and exercise.</p>
+        <p>You will leave with clear advice on what to do for the rest of your stay and after you get home.</p>
+        <h2>Family and friends</h2>
+        <p>I can see more than one person in your group when it is planned ahead, so mention it when you book. It is not always possible to accommodate same day additions, but feel free to ask and I will try to get your people taken care of.</p>
+      </div>
+      <div>
+        <figure class="credit-fig">
+          <img src={img('vail-sunrise.jpg')} alt="Sunrise over the Gore Range from a chairlift on Vail Mountain" loading="lazy" width="1000" height="1500" />
+          <figcaption>Vail Mountain at sunrise. Photo: <a href="https://commons.wikimedia.org/wiki/File:Sunrise_on_the_Mountain_(6882236114).jpg" rel="noopener">Zach Dischner</a>, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Book a visit</h2>
+      <p>Call or text with your name, where you are staying and what is bothering you.</p>
+      <CallText />
+      <p class="note" style="margin-top:1rem">Please keep detailed medical information out of texts and email. We will go over your history in person.</p>
+    </div>
+  </section>
+</Base>

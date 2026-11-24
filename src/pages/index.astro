@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ReviewLinks from '../components/ReviewLinks.astro';
+import { site, href, img, media } from '../data/site.js';
+---
+<Base
+  title="Mobile Sports Chiropractor in Vail | Dr. Mark Pitcher"
+  description="Board-certified sports chiropractor who comes to your hotel, home or condo in Vail, Beaver Creek, Avon, Edwards and Minturn. Call or text 970-331-1199."
+  path="/"
+>
+  <section class="splash">
+    <div class="wrap splash-grid">
+      <div class="splash-photo">
+        <picture>
+          <source srcset={img('profile.webp')} type="image/webp" />
+          <img src={img('profile.jpg')} alt="Dr. Mark Pitcher, sports chiropractor in Vail" width="1000" height="1037" fetchpriority="high" />
+        </picture>
+      </div>
+      <div class="splash-copy">
+        <h1 class="splash-name">Mark J. Pitcher</h1>
+        <p class="splash-role">chiropractic sports physician<br />exercise physiologist</p>
+        <p class="splash-place">Vail, Colorado</p>
+        <p class="splash-tagline">Helping people feel better,<br />move better and perform better</p>
+        <p class="splash-care">Mobile Concierge Care<br />By appointment only</p>
+        <p class="splash-phone"><a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a></p>
+        <p class="splash-areas">Hotel, condo and home visits in Vail, Beaver Creek, Avon, Edwards and Minturn</p>
+        <a class="splash-down" href="#visits" aria-label="Scroll down">
+          <svg viewBox="0 0 48 24" width="44" height="22" aria-hidden="true"><path d="M3 3 L24 20 L45 3" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="visits">
+    <div class="wrap">
+      <h2>I come to you</h2>
+      <p class="come-line">The world comes to the Vail Valley. When they are here, I come to them — at hotels, condos and homes in Vail, Beaver Creek, Avon, Edwards and Minturn. <a href={href('/hotel-visits/')}>Hotel and home visits</a></p>
+      <h2>What I treat</h2>
+      <p>Good treatment starts with a thorough history and examination that leads to an accurate diagnosis, so the underlying cause gets treated, not just the pain.</p>
+      <ul class="facts">
+        <li><strong>Back and neck pain</strong>Low back pain, stiff necks, sciatica and sacroiliac joint pain, including the pain that shows up after travel, long drives or the first days on the slopes.</li>
+        <li><strong>Ski and snowboard injuries</strong>Falls, twisted knees, sore shoulders and hips, and the strains that come from a big day on the mountain. If something needs imaging or emergency care, I will tell you.</li>
+        <li><strong>Sports and training injuries</strong>For high school and college athletes, weekend warriors, and Olympic and professional athletes, whether you climb, run, ski or train in the gym.</li>
+        <li><strong>Dancers and performers</strong>Back, hip, foot and ankle problems in dancers, from someone who has treated dancers from New York City Ballet, the Royal Ballet and the Martha Graham Dance Company.</li>
+        <li><strong>Overuse and soft tissue problems</strong>Muscle and tendon problems such as tennis elbow, shoulder pain, shin splints, plantar fasciitis and carpal tunnel syndrome.</li>
+        <li><strong>Headaches and stiff joints</strong>Tension headaches and restricted movement in the hips, knees, ankles, feet, shoulders and wrists, not just the spine.</li>
+      </ul>
+      <p class="note">Methods include chiropractic adjustment, dry needling, Active Release Technique, Graston, sports taping and corrective exercise. <a href={href('/treatments/')}>Treatments</a></p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="about">
+    <div class="wrap split split-flip">
+      <div>
+        <h2>Mark J. Pitcher, DC, MSc, CCSP</h2>
+        <p>Dr. Mark Pitcher is a board-certified sports chiropractor and exercise physiologist in Vail, Colorado. In almost 30 years of chiropractic practice he has learned from some of the best in rehabilitative medicine. He treats patients on and off the field, and athletes at every level: high school and college athletes, weekend warriors, and Olympic and professional athletes.</p>
+        <p>Mark holds a Master of Science in exercise physiology from Memorial University of Newfoundland, where his research focused on applied muscle physiology in the lumbar spine, and he has published in Applied Physiology, Nutrition, and Metabolism and the Journal of Sports Science and Medicine. He has lectured locally, nationally and internationally, and has taught college and university courses in joint mechanics, human factors, occupational ergonomics and sports biomechanics.</p>
+        <p>USA Climbing named him its first medical director in 2013, and he has been the chiropractor for events including the Mountain Dew Action Sports Tour, Honda Sessions and the Gravity Games. With Vail Integrative Medical Group he served as an official sports chiropractor for the Vail International Dance Festival and Ski and Snowboard Club Vail. He has treated some of the best dancers in the world, from New York City Ballet, the Royal Ballet and the Martha Graham Dance Company, and was medical director for Fang Yi Sheu's production in Taipei, Taiwan.</p>
+        <p><a href={href('/about/')}>More about Dr. Pitcher</a></p>
+      </div>
+      <div>
+        <div class="pair">
+          <img src={img('about-taping.jpg')} alt="Dr. Pitcher taping an athlete's wrist outdoors" loading="lazy" style="object-position: 68% 50%" />
+          <img src={img('about-mentor.jpg')} alt="Dr. Pitcher with a mentor in the gym" loading="lazy" />
+        </div>
+        <img class="collage-foot" src={img('about-taipei.jpg')} alt="Dr. Pitcher with dancers in Taipei" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section class="movement" aria-label="Martha Graham quote">
+    <video class="movement-media" autoplay muted loop playsinline preload="metadata" poster={media('dance-poster.jpg') || undefined} aria-hidden="true">
+      {media('dance.mp4') && <source src={media('dance.mp4')} type="video/mp4" />}
+    </video>
+    <div class="wrap movement-copy">
+      <blockquote>Movement never lies. It is a barometer telling the state of the soul's weather to all who can read it.</blockquote>
+      <p>Martha Graham</p>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <h2 class="testi-head">What people are saying</h2>
+      <Testimonials limit={6} />
+      <ReviewLinks more />
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="wrap">
+      <h2>Staying in the Vail Valley?</h2>
+      <p>Call or text with where you are staying and what is going on. Visits are by appointment in {site.areas.slice(0, -1).join(', ')} and {site.areas.at(-1)}.</p>
+      <CallText />
+    </div>
+  </section>
+</Base>

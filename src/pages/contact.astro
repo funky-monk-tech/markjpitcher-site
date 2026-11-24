@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import { site } from '../data/site.js';
+const where = `${site.areas.slice(0, -1).join(', ')} and ${site.areas.at(-1)}`;
+const faqs = [
+  ['Do you take insurance?', 'Visits are paid at the time of service as we do not bill insurance. We accept cash, Venmo and Zelle.'],
+  ['Where do you see patients?', `By appointment at hotels, condos and homes in ${where}. There is no clinic to visit.`],
+  ['What happens during a visit?', 'Every visit starts with a history and an examination, then treatment chosen for your problem. You leave with clear advice for the rest of your stay.'],
+  ['Can my hotel concierge book for me?', 'Yes. Concierges can call or text on a guest\'s behalf. Please make sure your concierge sends your name and contact details so I can reach you directly if needed.'],
+  ['Can you see more than one person?', 'Yes, when planned ahead. It is not always possible to accommodate same day additions. Feel free to ask and I will try to get your people taken care of.'],
+];
+---
+<Base
+  title="Contact Dr. Mark Pitcher | Mobile Sports Chiropractor, Vail"
+  description="Call, text or email to book a hotel or home chiropractic visit in Vail, Beaver Creek, Avon, Edwards or Minturn."
+  path="/contact/"
+>
+  <section class="wrap page-head" style="padding-bottom:4.5rem">
+    <div class="split">
+      <div>
+        <h1>Book a visit</h1>
+        <p>Availability is limited. Reach out early and I will do my best to fit you in.</p>
+        <p style="font-size:2rem;font-weight:300;letter-spacing:0.04em;margin-bottom:0"><a href={`tel:${site.phoneTel}`} style="text-decoration:none">{site.phoneDisplay}</a></p>
+        <CallText />
+      </div>
+      <aside class="faq-box" aria-labelledby="faq-h">
+        <h2 id="faq-h">Questions</h2>
+        {faqs.map(([q, a]) => (
+          <details>
+            <summary>{q}</summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </aside>
+    </div>
+  </section>
+</Base>

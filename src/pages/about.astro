@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import { img, href } from '../data/site.js';
+---
+<Base
+  title="About Mark Pitcher, DC, MSc, CCSP | Vail Sports Chiropractor"
+  description="Board-certified sports chiropractor and exercise physiologist in Vail, Colorado. Palmer College of Chiropractic, MSc Memorial University of Newfoundland, CCSP."
+  path="/about/"
+>
+  <section class="wrap page-head">
+    <h1>Mark J. Pitcher, DC, MSc, CCSP</h1>
+    <p>Board-certified sports chiropractor and exercise physiologist in Vail, Colorado.</p>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        <p>Dr. Mark Pitcher is a board-certified sports chiropractor and exercise physiologist in Vail, Colorado. In almost 30 years of chiropractic practice he has learned from some of the best in rehabilitative medicine. He treats patients on and off the field, and athletes at every level: high school and college athletes, weekend warriors, and Olympic and professional athletes.</p>
+        <h2>Training and research</h2>
+        <p>Mark earned his Doctor of Chiropractic at Palmer College of Chiropractic, where he was a teaching assistant in the Department of Diagnosis and Protocol. He went on to a Master of Science in exercise physiology at Memorial University of Newfoundland, where his research focused on applied muscle physiology in the lumbar spine. He presented that work to the Canadian Society for Exercise Physiology and published it in Applied Physiology, Nutrition, and Metabolism and the Journal of Sports Science and Medicine.</p>
+        <p>The American Chiropractic Board of Sports Physicians certifies him as a Certified Chiropractic Sports Physician (CCSP).</p>
+        <h2>Sport and events</h2>
+        <p>USA Climbing named him its first medical director in 2013, and he has been the chiropractor for events including the Mountain Dew Action Sports Tour, Honda Sessions and the Gravity Games. With Vail Integrative Medical Group he served as an official sports chiropractor for Ski and Snowboard Club Vail.</p>
+        <h2>Dance</h2>
+        <p>Mark has worked with some of the best dancers in the world, from New York City Ballet, the Royal Ballet and the Martha Graham Dance Company, to name a few. He travelled to Taipei, Taiwan, as medical director for Fang Yi Sheu's production <em>Timeless</em>, working with dancers from the Akram Khan Company and New York City Ballet. With Vail Integrative Medical Group he was also an official sports chiropractor for the Vail International Dance Festival.</p>
+        <h2>Teaching and lectures</h2>
+        <p>Mark has lectured locally, nationally and internationally, teaching workshops and seminars on health and fitness. He taught university courses in human factors, occupational ergonomics and sports biomechanics at Memorial University of Newfoundland, and clinical joint mechanics at the College of the North Atlantic. For several years he taught TRX Suspension Training and Sports Medicine courses to trainers around the country.</p>
+        <p>Lecture and workshop topics include low back pain mechanics and myths, preventing climbing injuries, the role of fascia in injury and rehabilitation, exercise for healthy aging, rest and recovery for athletes, and the sports chiropractor's place on an interdisciplinary care team. For lecture enquiries, call or text.</p>
+        <h2>In the press</h2>
+        <p><a href="https://www.vailmag.com/health-and-wellness/the-secret-to-crushing-steeps-plenty-of-rest-between-runs/" rel="noopener">The Secret to Crushing Steeps? Plenty of Rest Between Runs</a>, Vail Magazine. Dr. Pitcher on recovery as the "silent workout": sleep, hydration, hot tubs, ice and compression for skiers between big days on the mountain.</p>
+        <p><a href={href('/press/')}>All press and articles</a></p>
+      </div>
+      <div>
+        <div class="collage collage-side">
+          <img class="wide tall" src={img('about-taipei.jpg')} alt="Dr. Pitcher with dancers in Taipei" loading="lazy" />
+          <img src={img('about-dancer.jpg')} alt="Dr. Pitcher treating a dancer" loading="lazy" />
+          <img src={img('about-mentor.jpg')} alt="Dr. Pitcher with a mentor" loading="lazy" />
+          <img class="wide" src={img('about-trx.jpg')} alt="Dr. Pitcher at a TRX course" loading="lazy" />
+          <img src={img('about-taping.jpg')} alt="Dr. Pitcher taping an athlete outdoors" loading="lazy" />
+          <img src={img('about-gym.jpg')} alt="Dr. Pitcher with colleagues" loading="lazy" />
+        </div>
+        <img class="collage-foot" src={img('about-teaching.jpg')} alt="Dr. Pitcher teaching a workshop" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Book a visit</h2>
+      <CallText />
+    </div>
+  </section>
+</Base>

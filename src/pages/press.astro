@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import columns from '../data/columns.json';
+
+const papers = [
+  { cite: 'Pitcher MJ, Behm DG, MacKinnon SN. Reliability of electromyographic and force measures during prone isometric back extension in subjects with and without low back pain.', journal: 'Applied Physiology, Nutrition, and Metabolism', ref: '2008;33(1):52-60', link: 'https://doi.org/10.1139/H07-132' },
+  { cite: 'Pitcher MJ, Behm DG, MacKinnon SN. Neuromuscular fatigue during a modified Biering-Sørensen test in subjects with and without low back pain.', journal: 'Journal of Sports Science and Medicine', ref: '2007;6(4):549-559', link: 'https://www.jssm.org/jssm-06-549.xml-Fulltext' },
+  { cite: 'Pitcher MJ. Evaluation of strength and fatigue in subjects with and without lower back pain using Sørensen prone isometric back extension.', journal: 'Master of Science thesis, Memorial University of Newfoundland', ref: '2006', link: 'https://research.library.mun.ca/11255' },
+  { cite: 'Pitcher MJ, MacKinnon SN, Behm DG. Reliability of electromyographic measures and back extension forces during a prone isometric back extension.', journal: 'Canadian Journal of Applied Physiology (conference abstract)', ref: '2002' },
+  { cite: 'Pitcher MJ, Behm DG, MacKinnon SN. Force-EMG relationships of bilateral paraspinal muscles.', journal: 'Canadian Journal of Applied Physiology (conference abstract)', ref: '2002' },
+  { cite: 'MacKinnon SN, Pitcher MJ, Behm DG. Neuromuscular fatigue associated with a variation of a modified Sørensen test.', journal: 'Canadian Journal of Applied Physiology (conference abstract)', ref: '2002' },
+];
+
+const features = [
+  { title: 'The Secret to Crushing Steeps? Plenty of Rest Between Runs', source: 'Vail-Beaver Creek Magazine', when: '2017', note: 'Recovery as the "silent workout": sleep, hydration, hot tubs, ice and compression between ski days.', link: 'https://www.vailmag.com/health-and-wellness/the-secret-to-crushing-steeps-plenty-of-rest-between-runs/' },
+  { title: 'Interview on exercise recovery strategies', source: 'Glow Magazine', when: 'Winter 2018', note: 'How to recover well between hard training days.', link: 'https://epaper.vaildaily.com/html5/reader/production/default.aspx?pubname=&edid=f8a68d17-3fc7-4582-9b16-95719388c47a' },
+  { title: 'Low back pain myths', source: 'Good Morning Vail', when: 'Dec 2017', note: 'A short TV8 segment on common myths about lower back pain.', link: 'https://www.youtube.com/watch?v=g9Bq5Gl3yOk' },
+  { title: 'Vail health: A leg up, without pain', source: 'Vail Daily', when: '2017', note: 'Dr. Pitcher and the sports medicine team for the Vail International Dance Festival.', link: 'https://www.vaildaily.com/news/vail-health-a-leg-up-without-pain/' },
+  { title: 'Get Fit: Suspension Workout', source: 'SKI Magazine', when: '2015', note: 'Using suspension training in a pre-season ski conditioning program.', link: 'https://www.skimag.com/ski-performance/get-fit-suspension-workout' },
+  { title: 'Vail chiropractor travels to Taipei with dance troupe', source: 'Vail Daily', when: '2013', note: 'Touring Taipei with Fang-Yi Sheu, Akram Khan and New York City Ballet dancers.', link: 'https://www.vaildaily.com/news/vail-chiropractor-travels-to-taipei-with-dance-troupe/' },
+];
+---
+<Base
+  title="Press and Articles | Mark Pitcher, DC, MSc, CCSP, Vail Sports Chiropractor"
+  description="Magazine, newspaper and TV features on Vail sports chiropractor Mark Pitcher, plus his articles on back pain, fascia, foam rolling, breathing and movement."
+  path="/press/"
+>
+  <section class="wrap page-head">
+    <h1>Press</h1>
+  </section>
+
+  <section class="section" style="padding-top:1rem">
+    <div class="wrap">
+      <h2>Features and interviews</h2>
+      <ul class="press-list">
+        {features.map((f) => (
+          <li>
+            {f.link ? <a href={f.link} rel="noopener" class="press-title">{f.title}</a> : <span class="press-title">{f.title}</span>}
+            <span class="press-meta">{f.source}, {f.when}</span>
+            <p>{f.note}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Articles by Dr. Pitcher</h2>
+      <p>Columns written for the Vail Daily and Vail Weekly, and posts from his blog. Select a title to read it.</p>
+      <div class="article-list">
+        {columns.map((c) => (
+          <details>
+            <summary><span class="press-title">{c.title}</span> <span class="press-meta">{c.source === 'Blog' ? 'Blog' : c.source}, {c.when}</span></summary>
+            <div class="prose">
+              {c.paras.map((p) => <p>{p}</p>)}
+              {c.link && <p><a href={c.link} rel="noopener">Read it in the {c.source}</a></p>}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Scientific papers</h2>
+      <p>Research on low back muscle strength, endurance and fatigue from his Master of Science work at Memorial University of Newfoundland.</p>
+      <ul class="press-list">
+        {papers.map((p) => (
+          <li>
+            {p.cite} <em>{p.journal}</em>, {p.ref}.
+            {p.link && <> <a href={p.link} rel="noopener">Read the paper</a></>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Book a visit</h2>
+      <CallText />
+    </div>
+  </section>
+</Base>

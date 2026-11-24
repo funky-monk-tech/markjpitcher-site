@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import CallText from '../components/CallText.astro';
+import { img } from '../data/site.js';
+import { gallery } from '../data/testimonials.js';
+---
+<Base
+  title="Gallery | Mark Pitcher, DC, MSc, CCSP, Vail Sports Chiropractor"
+  description="Signed photos and thank-you notes from athletes, teams and dancers treated by Vail sports chiropractor Mark Pitcher, on the field and backstage."
+  path="/gallery/"
+>
+  <section class="wrap page-head">
+    <h1>On the field and backstage</h1>
+    <p>Signed photos and thank-you notes from athletes, teams and dancers, and a few moments from the sidelines.</p>
+  </section>
+
+  <section class="section" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="photo-wall">
+        {gallery.map((p) => (
+          <figure class="wall-item">
+            <a href={img(p.f)}><img src={img(p.f)} alt={p.alt || p.cap} loading="lazy" /></a>
+            {p.cap && <figcaption>{p.cap}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <h2>Book a visit</h2>
+      <CallText />
+    </div>
+  </section>
+</Base>

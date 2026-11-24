@@ -1,0 +1,8 @@
+---
+import { site } from '../data/site.js';
+---
+<div class="btn-row">
+  <a class="btn btn-marker" href={`tel:${site.phoneTel}`}>Call {site.phoneDisplay}</a>
+  <a class="btn btn-light" href={`sms:${site.phoneTel}`}>Send a text</a>
+  <a class="btn btn-line js-email" href="#" data-u={site.emailUser} data-d={site.emailDomain}>Send an email</a>
+</div>

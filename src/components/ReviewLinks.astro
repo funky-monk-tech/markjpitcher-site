@@ -1,0 +1,9 @@
+---
+import { site, href } from '../data/site.js';
+const { more = false, gallery = false } = Astro.props;
+---
+<div class="review-links">
+  <a class="review-pill" href={site.mapsUrl} rel="noopener">Google reviews</a>
+  {more && <a class="review-pill review-more" href={href('/testimonials/')}>More testimonials</a>}
+  {(more || gallery) && <a class="review-pill review-more" href={href('/gallery/')}>Photo gallery</a>}
+</div>
