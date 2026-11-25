@@ -132,7 +132,7 @@ strong { font-weight: 600; }
 .splash-down { display: inline-block; margin-top: 1.75rem; padding: 0.5rem; }
 @media (min-width: 52rem) {
   .splash-grid { grid-template-columns: 1fr 1fr; align-items: center; padding-top: 2.5rem; min-height: 38rem; }
-  .splash-photo { order: 1; justify-self: start; margin-left: calc((min(100vw - 2.5rem, 72rem) - 100vw) / 2 + 0.5rem); width: min(100%, 33rem); }
+  .splash-photo { order: 1; justify-self: start; margin-left: max(calc((min(100vw - 2.5rem, 72rem) - 100vw) / 2 + 0.5rem), -6rem); width: min(100%, 33rem); }
   .splash-copy { order: 2; padding-bottom: 2rem; }
 }
 
