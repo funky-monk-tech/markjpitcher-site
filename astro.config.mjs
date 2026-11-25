@@ -33,6 +33,7 @@ const redirects = preview ? {} : {
 
 export default defineConfig({
   site: 'https://www.markjpitcher.com',
+  base: process.env.SITE_BASE || undefined,
   trailingSlash: preview ? 'ignore' : 'always',
   build: { format: preview ? 'file' : 'directory' },
   redirects,

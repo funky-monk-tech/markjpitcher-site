@@ -32,8 +32,11 @@ export const nav = [
 ];
 
 // In preview builds, pages are flat .html files; in production, clean folders.
+// Base path: empty on markjpitcher.com, '/markjpitcher-site' on the GitHub test address.
+const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+
 export function href(path) {
-  if (!PREVIEW) return path;
+  if (!PREVIEW) return BASE + path;
   const [p, hash] = path.split('#');
   const file = p === '/' ? '/index.html' : p.replace(/\/$/, '') + '.html';
   return hash ? file + '#' + hash : file;
@@ -68,11 +71,11 @@ export function img(name, w) {
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect width="900" height="600" fill="#d6e7ec"/><path d="M0 600 L260 300 L400 430 L600 180 L900 520 L900 600 Z" fill="#1e4d45" opacity=".35"/><text x="450" y="300" text-anchor="middle" font-family="Arial" font-size="40" fill="#13222b">Photo: ${name}</text></svg>`;
     return 'data:image/svg+xml,' + encodeURIComponent(svg);
   }
-  return `/images/${name}`;
+  return `${BASE}/images/${name}`;
 }
 export const wixIds = wix;
 
 // Video and other media served from public/media (shipped with the preview too).
 export function media(name) {
-  return PREVIEW ? `./media/${name}` : `/media/${name}`;
+  return PREVIEW ? `./media/${name}` : `${BASE}/media/${name}`;
 }

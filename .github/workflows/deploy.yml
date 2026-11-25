@@ -10,6 +10,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Remove this line once markjpitcher.com points at GitHub Pages.
+      SITE_BASE: /markjpitcher-site
     steps:
       - uses: actions/checkout@v4
       - uses: withastro/action@v3
