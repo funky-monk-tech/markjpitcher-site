@@ -38,7 +38,7 @@ Home, Hotel and home visits, Treatments, About, Testimonials, Gallery, Press (fe
 
 ## Tech
 
-- Astro static site, deployed to GitHub Pages with GitHub Actions (repo funky-monk-tech/markjpitcher-site; test address https://funky-monk-tech.github.io/markjpitcher-site/). When the domain moves over, remove SITE_BASE from .github/workflows/deploy.yml and add the custom domain in Settings, Pages.
+- Astro static site, deployed to GitHub Pages with GitHub Actions (repo funky-monk-tech/markjpitcher-site; test address https://funky-monk-tech.github.io/markjpitcher-site/). Live at https://www.markjpitcher.com since November 25, 2026 (DNS on Cloudflare, nameservers lara/marvin.ns.cloudflare.com, domain registered at GoDaddy).
 - GitHub account: funky-monk-tech; repository must be public for free Pages
 - No contact form and no online booking. Visitors call, text or email. Call and text are the primary buttons; email is secondary.
 - Protect the email address from scrapers: do not put it as plain text in the HTML. Assemble the mailto link with a small script at click time, and keep Cloudflare Email Address Obfuscation on after launch.
