@@ -11,7 +11,7 @@ Rebuild of Dr. Mark Pitcher's mobile sports chiropractic site, moving from Wix t
 - Treatments: chiropractic adjustment, soft tissue techniques (Active Release Technique, Graston/IASTM), dry needling, sports taping (Kinesiotape, Rocktape), corrective exercise
 - Former official sports chiropractor (with Vail Integrative Medical Group) for the Vail International Dance Festival and Ski and Snowboard Club Vail
 - Phone and text: 970-331-1199
-- Email: markjpitcher@gmail.com for now; mark@markjpitcher.com once Cloudflare email routing is live
+- Email: mark@markjpitcher.com (Cloudflare Email Routing forwards to markjpitcher@gmail.com)
 - Google review link: https://g.page/r/CW4AWPoY43fCEAE/review
 - Google Maps listing: https://www.google.com/maps?cid=14012918462012194926
 

@@ -10,8 +10,8 @@ export const site = {
   phoneDisplay: '970-331-1199',
   phoneTel: '+19703311199',
   // Assembled in the browser at click time so scrapers never see it in the HTML.
-  emailUser: 'markjpitcher',
-  emailDomain: 'gmail.com',
+  emailUser: 'mark',
+  emailDomain: 'markjpitcher.com',
   // Every email link opens with this subject so Gmail can filter and label requests.
   emailSubject: 'markjpitcher.com visit request',
   emailBody: 'Name:\nWhere you are staying (hotel or address area):\nDates you are in the valley:\nBest times for a visit:\nBrief reason for the visit (please no detailed medical information):\n',
