@@ -20,20 +20,13 @@ Rebuild of Dr. Mark Pitcher's mobile sports chiropractic site, moving from Wix t
 - No price list anywhere. Pricing is quoted by phone.
 - No street address. The Google Business Profile is a service-area business with the address hidden; schema must use areaServed, not a street address.
 - Do not describe the practice as physical therapy.
-- Do not mention insurance or cash pay on the site until Mark confirms (he removed it from the Business Profile). Draft the FAQ answer but leave it commented out.
+- Insurance answer approved by Mark: "Visits are paid at the time of service as we do not bill insurance. We accept cash, Venmo and Zelle."
 - No patient information ever goes in this repository. It is public.
 - Writing style for all site copy: never use em dashes or en dashes; use commas, periods, colons or restructured sentences. No bold for emphasis. Lead with the point, use direct verbs, no literary adjectives, no hype.
 
-## Pages
+## Pages (current)
 
-1. Home: "I come to your hotel or home" message above the fold on mobile, tap-to-call and tap-to-text buttons, credentials, team affiliations, testimonials, review link
-2. Hotel and in-home visits: how a visit works, areas covered, what he brings
-3. Treatments: one section per treatment
-4. About: credentials, history, affiliations
-5. FAQ: how fast he can come, family members, what to expect, what to wear (insurance answer drafted but hidden)
-6. Contact: call, text, email, review link
-
-Testimonials to carry over from the current site: Wendy Whelan (New York City Ballet), Celeste Callahan (USA Triathlon board; fix the "Trialthlon" typo), Dana Cohan (New York, NY).
+Home, Hotel and home visits, Treatments, About, Testimonials, Gallery, Press (features, articles, scientific papers), Contact (with the FAQ as a light-blue Questions box). The ski injuries page and the separate FAQ page were removed at Mark's request.
 
 ## SEO requirements
 
@@ -45,7 +38,7 @@ Testimonials to carry over from the current site: Wendy Whelan (New York City Ba
 
 ## Tech
 
-- Astro static site, deployed to GitHub Pages with GitHub Actions
+- Astro static site, deployed to GitHub Pages with GitHub Actions (repo funky-monk-tech/markjpitcher-site; test address https://funky-monk-tech.github.io/markjpitcher-site/). When the domain moves over, remove SITE_BASE from .github/workflows/deploy.yml and add the custom domain in Settings, Pages.
 - GitHub account: funky-monk-tech; repository must be public for free Pages
 - No contact form and no online booking. Visitors call, text or email. Call and text are the primary buttons; email is secondary.
 - Protect the email address from scrapers: do not put it as plain text in the HTML. Assemble the mailto link with a small script at click time, and keep Cloudflare Email Address Obfuscation on after launch.
